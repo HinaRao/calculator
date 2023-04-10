@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JavaScript Calculator</title>
+
+        <script>
+            let lastInputWasOperator = false;
+            function handleInput(input){
+                let display= document.getElementById("display");
+
+                if(
+                    input === "+" ||
+                    input === "-" ||
+                    input === "*" ||
+                    input === "/" ||
+                    input === "." 
+
+                ) {
+                    if(!lastInputWasOperator && display.value !== " " ){
+                        display.value += input;
+                        lastInputWasOperator = true;
+
+                    }
+                    
+                } else if (input === "CE") {
+                    display.value = "";
+                    lastInputWasOperator = false;
+
+                } else if (input === "Del") {
+                    display.value = display.value.slice(0, -1);
+                    lastInputWasOperator = false;
+                } else if (input === "=") {
+                    display.value = eval(display.value);
+                    lastInputWasOperator = false;
+                } else {
+                    display.value += input;
+                    lastInputWasOperator = false;
+                }
+                    
+                 
+            }
+        </script>
+    </head>
+    <style>
+    h1{
+        text-align: center;
+        margin: auto;
+        padding: 23px;
+        background-color: beige;
+        color: black;
+    }
+
+    .form{  
+        width: 300px;
+        height: 500px;
+        margin: auto;
+        border: 6px solid red;
+        border-radius: 5px;
+        padding: 20px;
+        
+    }  
+
+    .button{
+        width: 15px;
+        border: 3px solid yellow;
+        border-radius: 5px;
+        padding: 10px;
+        margin: auto;
+    }
+
+    #clear{
+        width: 310px;
+        border: 3px solid goldenrod;
+        border-radius: 3px;
+        padding: 10px;
+        background-color: rgb(146, 91, 20);
+        font-size: medium;
+    }
+
+    input{
+        width: auto;
+        background-color: rgb(46, 94, 228);
+        color: rgb(244, 204, 252);
+        border: 3px solid gray;
+        border-radius: 5px;
+        padding: 25px;
+        margin: 5px;
+        font-size: 24px;
+    }
+
+    .formstyle{
+        width: 340px;
+        height: 700px;
+        margin: auto;
+        border: 3px solid rgb(229, 220, 255);
+        border-radius: 5px;
+        padding: 20px;
+        background: rgb(109, 41, 172);
+        
+    }
+
+    #calc{
+        width: auto;
+        border: 3px solid rgb(12, 163, 138);
+        border-radius: 3px;
+        padding: 20px;
+        margin: auto;
+    }
+
+    
+    
+    </style>
+    <body>
+        <h1>Calculator in JavaScript</h1> <br>
+        <div  class= "formstyle"> <br>  
+        <form > 
+       
+        <div>
+            <input id = "display" type ="text" name = "display"> <br> <br>  
+            <input type = "button" value = "1" onclick = "handleInput('1') ">
+            <input type = "button" value = "2" onclick = "handleInput('2') ">
+            <input type = "button" value = "3" onclick = "handleInput('3') ">
+            <input type = "button" value = "+" onclick = "handleInput('+') ">
+            <br><br>
+
+            <input type = "button" value = "4" onclick = "handleInput('4') ">
+            <input type = "button" value = "5" onclick = "handleInput('5') ">
+            <input type = "button" value = "6" onclick = "handleInput('6') ">
+            <input type = "button" value = "-" onclick = "handleInput('-') ">
+            <br><br>
+
+            <input type = "button" value = "7" onclick = "handleInput('7') ">
+            <input type = "button" value = "8" onclick = "handleInput('8') ">
+            <input type = "button" value = "9" onclick = "handleInput('9') ">
+            <input type = "button" value = "*" onclick = "handleInput('*') ">
+            <br><br>
+
+            <input type = "button" value = "/" onclick = "handleInput('/') ">
+            <input type = "button" value = "0" onclick = "handleInput('0') ">
+            <input type = "button" value = "." onclick = "handleInput('.') ">
+            <input type = "button" value = "=" onclick = "handleInput('=') ">
+            <br><br>
+            <input type = "button" style="width: 200px" value = "CE" onclick = "handleInput('CE') ">
+            <input type = "button" style="width: 100px" value = "Del" onclick = "handleInput('Del') ">   
+       
+            <br><br>
+        </div>
+    </div>
+    </body>
+</html>
